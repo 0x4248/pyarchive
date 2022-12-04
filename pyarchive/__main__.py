@@ -144,6 +144,17 @@ if __name__ ==  "__main__":
                 os.chdir("..")
             else:
                 verbose.error("Not in a selected archive")
+        if cmd.upper() == "SEARCH":
+            term = input("Enter search term>")
+            if in_archive == True:
+                for root, subdirectories, files in os.walk(os.getcwd()):
+                    for file in files:
+                        if file == "TITLE.txt":
+                            with open(os.path.join(root, file)) as f:
+                                for line in f:
+                                    if term in line:
+                                        verbose.log("Found in "+os.path.join(root, file))
+                                        break
         if cmd.upper() == "EXIT" or cmd.upper() == "QUIT" or cmd.upper() == "E" or cmd.upper() == "Q":
             exit(0)
         
