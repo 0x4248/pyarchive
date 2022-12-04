@@ -137,6 +137,7 @@ if __name__ ==  "__main__":
                 f = open("DATE.txt","w")
                 f.write(date)
                 f.close()
+                verbose.log("We are now boxing up your files and placing it in the warehouse if there are large files this will take time. Do not close the terminal.")
                 make_tarfile(box+".tar.gz",location)
                 print("Created archive at:"+os.getcwd())
                 os.chdir("..")
