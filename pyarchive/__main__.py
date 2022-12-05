@@ -76,10 +76,46 @@ if __name__ ==  "__main__":
                     title = input("Title of archive>")
                     if len(title) != 0:
                         break
-
+                
                 description = input("Description of archive (Leave blank for none)>")
                 author = input("Author of archive (Leave blank for none)>")
                 date = input("Date of known data creation (Leave blank for none)>")
+                
+                while True:
+                    print("What is the type of data your are archiving\n1) text\n2) documents (doc's and PDF's)\n3) pictures\n4) audio\n5) video\n6) data\n7) software\n8) disk images (ISO files and VMDK)\n9) other\n10) other (will give prompt asking you what type)\n")
+                    data_type = input("Enter number>")
+                    if data_type == "1" or data_type.upper == "TEXT":
+                        data_type = "text"
+                        break
+                    if data_type == "2" or data_type.upper == "DOCUMENTS":
+                        data_type = "documents"
+                        break
+                    if data_type == "3" or data_type.upper == "PICTURES":
+                        data_type = "pictures"
+                        break
+                    if data_type == "4" or data_type.upper == "AUDIO":
+                        data_type = "audio"
+                        break
+                    if data_type == "5" or data_type.upper == "VIDEO":
+                        data_type = "video"
+                        break
+                    if data_type == "6" or data_type.upper == "DATA":
+                        data_type = "data"
+                        break
+                    if data_type == "7" or data_type.upper == "SOFTWARE":
+                        data_type = "software"
+                        break
+                    if data_type == "8" or data_type.upper == "DISK IMAGES":
+                        data_type = "disk images"
+                        break
+                    if data_type == "9" or data_type.upper == "OTHER":
+                        data_type = "other"
+                        break
+                    if data_type == "10":
+                        data_type = input("Enter data type>")
+                        break
+                    else:
+                        print("Enter a valid number")
 
                 if input("Do you want to place this archive in a specific location of your warehouse [Y/N]>").upper() == "Y":
                     section = input("Section in of warehouse [6 Digits] (Leave blank for random)>").lower()
@@ -137,6 +173,9 @@ if __name__ ==  "__main__":
                 f = open("DATE.txt","w")
                 f.write(date)
                 f.close()
+                f = open("TYPE.txt","w")
+                f.write(data_type)
+                f.close()
                 verbose.log("We are now boxing up your files and placing it in the warehouse if there are large files this will take time. Do not close the terminal.")
                 make_tarfile(box+".tar.gz",location)
                 print("Created archive at:"+os.getcwd())
@@ -154,7 +193,7 @@ if __name__ ==  "__main__":
                             with open(os.path.join(root, file)) as f:
                                 for line in f:
                                     if term in line:
-                                        verbose.log("Found in "+os.path.join(root, file))
+                                        verbose.log("Found in "+os.path.join(root, file)+" Data type:"+open(os.path.join(root, "TYPE.txt")).read())
                                         break
         if cmd.upper() == "EXIT" or cmd.upper() == "QUIT" or cmd.upper() == "E" or cmd.upper() == "Q":
             exit(0)
