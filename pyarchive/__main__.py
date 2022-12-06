@@ -193,7 +193,11 @@ if __name__ ==  "__main__":
                             with open(os.path.join(root, file)) as f:
                                 for line in f:
                                     if term in line:
-                                        verbose.log("Found in "+os.path.join(root, file)+" Data type:"+open(os.path.join(root, "TYPE.txt")).read())
+                                        try:
+                                            data_type = open(os.path.join(root, "TYPE.txt")).read()
+                                        except:
+                                            data_type = "None Set"
+                                        verbose.log("Found in "+os.path.join(root, file).replace("TITLE.txt","")+" Data type:"+data_type)
                                         break
         if cmd.upper() == "EXIT" or cmd.upper() == "QUIT" or cmd.upper() == "E" or cmd.upper() == "Q":
             exit(0)
