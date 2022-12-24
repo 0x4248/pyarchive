@@ -22,8 +22,8 @@ def make_tarfile(output_filename, source_dir):
         tar.add(source_dir, arcname=os.path.basename(source_dir))
 
 if __name__ ==  "__main__":
-    print("Welcome to archive console type help to get help.")
-    cmd_input_line = "Archive ("+Fore.BLUE+"Not Selected"+Style.RESET_ALL+")>"
+    print("Welcome to PyArchive console type help to get help.")
+    cmd_input_line = "PyArchive ("+Fore.BLUE+"Not Selected"+Style.RESET_ALL+")>"
     in_archive = False
     current_archive = ""
     start_dir = os.getcwd()
