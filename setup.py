@@ -1,3 +1,10 @@
+# pyarchive
+# Quickly create and manage archives for large amount of data
+# GitHub: https://www.github.com/lewisevans2007/pyarchive
+# Licence: GNU General Public License v3.0
+# By: Lewis Evans
+        print(Fore.GREEN+"[+] "+Style.RESET_ALL+message)
+
 import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
