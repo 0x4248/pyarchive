@@ -1,8 +1,8 @@
 # pyarchive
 # Quickly create and manage archives for large amount of data
-# GitHub: https://www.github.com/lewisevans2007/pyarchive
+# GitHub: https://www.github.com/0x4248/pyarchive
 # Licence: GNU General Public License v3.0
-# By: Lewis Evans
+# By: 0x4248
 
 from colorama import Fore, Back, Style
 import os
